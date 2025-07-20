@@ -243,16 +243,13 @@ We welcome contributions from the medical and developer communities:
 
 ## 📞 Support & Contact
 
-### **Medical Support**
-For medical workflow questions or clinical feature requests:
-- Email: medical-support@gaza-care-hub.org
-- Documentation: [Medical Workflow Guide](docs/medical-workflow.md)
+
 
 ### **Technical Support**
 For technical issues or development questions:
-- GitHub Issues: [Report Bug/Request Feature](https://github.com/your-org/gaza-care-hub/issues)
-- Email: tech-support@gaza-care-hub.org
-- Documentation: [Technical Documentation](docs/technical-guide.md)
+- GitHub Issues: [Report Bug/Request Feature](https://github.com/salskhal/Gaza-Care-Hub/issues)
+- Email: olaniyisal@gmail.com
+
 
 ## 📄 License
 
