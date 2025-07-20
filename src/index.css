@@ -1,0 +1,2046 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* ========================================
+     Gaza Care Hub Design System Custom Properties
+     ======================================== */
+  
+  /* Primary color palette - Teal representing hope and healing */
+  --gaza-primary-50: #f0fdfa;
+  --gaza-primary-100: #ccfbf1;
+  --gaza-primary-200: #99f6e4;
+  --gaza-primary-300: #5eead4;
+  --gaza-primary-400: #2dd4bf;
+  --gaza-primary-500: #14b8a6;
+  --gaza-primary-600: #0d9488;  /* Brand signature color */
+  --gaza-primary-700: #0f766e;
+  --gaza-primary-800: #115e59;
+  --gaza-primary-900: #134e4a;
+  
+  /* Triage status colors - Medical standard color coding */
+  --gaza-critical-50: #fef2f2;
+  --gaza-critical-100: #fee2e2;
+  --gaza-critical-200: #fecaca;
+  --gaza-critical-300: #fca5a5;
+  --gaza-critical-400: #f87171;
+  --gaza-critical-500: #ef4444;
+  --gaza-critical-600: #dc2626;  /* Critical red - immediate attention */
+  --gaza-critical-700: #b91c1c;
+  --gaza-critical-800: #991b1b;
+  --gaza-critical-900: #7f1d1d;
+  
+  --gaza-urgent-50: #fffbeb;
+  --gaza-urgent-100: #fef3c7;
+  --gaza-urgent-200: #fde68a;
+  --gaza-urgent-300: #fcd34d;
+  --gaza-urgent-400: #fbbf24;
+  --gaza-urgent-500: #f59e0b;   /* Urgent amber - prompt attention */
+  --gaza-urgent-600: #d97706;
+  --gaza-urgent-700: #b45309;
+  --gaza-urgent-800: #92400e;
+  --gaza-urgent-900: #78350f;
+  
+  --gaza-stable-50: #ecfdf5;
+  --gaza-stable-100: #d1fae5;
+  --gaza-stable-200: #a7f3d0;
+  --gaza-stable-300: #6ee7b7;
+  --gaza-stable-400: #34d399;
+  --gaza-stable-500: #10b981;
+  --gaza-stable-600: #059669;   /* Stable green - non-urgent care */
+  --gaza-stable-700: #047857;
+  --gaza-stable-800: #065f46;
+  --gaza-stable-900: #064e3b;
+  
+  /* Neutral colors - Professional medical interface */
+  --gaza-gray-50: #f8fafc;
+  --gaza-gray-100: #f1f5f9;
+  --gaza-gray-200: #e2e8f0;
+  --gaza-gray-300: #cbd5e1;
+  --gaza-gray-400: #94a3b8;
+  --gaza-gray-500: #64748b;
+  --gaza-gray-600: #475569;
+  --gaza-gray-700: #334155;
+  --gaza-gray-800: #1e293b;
+  --gaza-gray-900: #0f172a;
+  
+  /* Semantic colors for consistent UI elements */
+  --gaza-background: #ffffff;
+  --gaza-surface: #f8fafc;
+  --gaza-border: #e2e8f0;
+  --gaza-text-primary: #0f172a;
+  --gaza-text-secondary: #475569;
+  --gaza-text-muted: #64748b;
+  
+  /* Typography system - Optimized for medical information readability */
+  --gaza-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --gaza-font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Font sizes */
+  --gaza-text-xs: 0.75rem;      /* 12px */
+  --gaza-text-sm: 0.875rem;     /* 14px */
+  --gaza-text-base: 1rem;       /* 16px */
+  --gaza-text-lg: 1.125rem;     /* 18px */
+  --gaza-text-xl: 1.25rem;      /* 20px */
+  --gaza-text-2xl: 1.5rem;      /* 24px */
+  --gaza-text-3xl: 1.875rem;    /* 30px */
+  --gaza-text-4xl: 2.25rem;     /* 36px */
+  --gaza-text-5xl: 3rem;        /* 48px */
+  
+  /* Font weights */
+  --gaza-font-light: 300;
+  --gaza-font-normal: 400;
+  --gaza-font-medium: 500;
+  --gaza-font-semibold: 600;
+  --gaza-font-bold: 700;
+  --gaza-font-extrabold: 800;
+  
+  /* Line heights */
+  --gaza-leading-tight: 1.25;
+  --gaza-leading-snug: 1.375;
+  --gaza-leading-normal: 1.5;
+  --gaza-leading-relaxed: 1.625;
+  --gaza-leading-loose: 2;
+  
+  /* Spacing system - Consistent spacing for layouts and components */
+  --gaza-spacing-px: 1px;
+  --gaza-spacing-0: 0;
+  --gaza-spacing-0-5: 0.125rem;  /* 2px */
+  --gaza-spacing-1: 0.25rem;     /* 4px */
+  --gaza-spacing-1-5: 0.375rem;  /* 6px */
+  --gaza-spacing-2: 0.5rem;      /* 8px */
+  --gaza-spacing-2-5: 0.625rem;  /* 10px */
+  --gaza-spacing-3: 0.75rem;     /* 12px */
+  --gaza-spacing-3-5: 0.875rem;  /* 14px */
+  --gaza-spacing-4: 1rem;        /* 16px */
+  --gaza-spacing-5: 1.25rem;     /* 20px */
+  --gaza-spacing-6: 1.5rem;      /* 24px */
+  --gaza-spacing-7: 1.75rem;     /* 28px */
+  --gaza-spacing-8: 2rem;        /* 32px */
+  --gaza-spacing-9: 2.25rem;     /* 36px */
+  --gaza-spacing-10: 2.5rem;     /* 40px */
+  --gaza-spacing-11: 2.75rem;    /* 44px - Minimum touch target size */
+  --gaza-spacing-12: 3rem;       /* 48px */
+  --gaza-spacing-14: 3.5rem;     /* 56px */
+  --gaza-spacing-16: 4rem;       /* 64px */
+  --gaza-spacing-20: 5rem;       /* 80px */
+  --gaza-spacing-24: 6rem;       /* 96px */
+  --gaza-spacing-32: 8rem;       /* 128px */
+  
+  /* Border radius - Consistent rounded corners */
+  --gaza-radius-none: 0;
+  --gaza-radius-sm: 0.125rem;    /* 2px */
+  --gaza-radius-base: 0.25rem;   /* 4px */
+  --gaza-radius-md: 0.375rem;    /* 6px */
+  --gaza-radius-lg: 0.5rem;      /* 8px */
+  --gaza-radius-xl: 0.75rem;     /* 12px */
+  --gaza-radius-2xl: 1rem;       /* 16px */
+  --gaza-radius-3xl: 1.5rem;     /* 24px */
+  --gaza-radius-full: 9999px;
+  
+  /* Shadows - Depth and elevation */
+  --gaza-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --gaza-shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --gaza-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --gaza-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --gaza-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --gaza-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --gaza-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  
+  /* Transitions - Smooth animations */
+  --gaza-transition-fast: 150ms ease-in-out;
+  --gaza-transition-normal: 250ms ease-in-out;
+  --gaza-transition-slow: 350ms ease-in-out;
+  --gaza-transition-all: all 250ms ease-in-out;
+  
+  /* Z-index scale - Layering system */
+  --gaza-z-hide: -1;
+  --gaza-z-auto: auto;
+  --gaza-z-base: 0;
+  --gaza-z-docked: 10;
+  --gaza-z-dropdown: 1000;
+  --gaza-z-sticky: 1100;
+  --gaza-z-banner: 1200;
+  --gaza-z-overlay: 1300;
+  --gaza-z-modal: 1400;
+  --gaza-z-popover: 1500;
+  --gaza-z-tooltip: 1800;
+
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Gaza Care Hub Design System Components */
+  
+  /* Triage-specific component styles */
+  .triage-card {
+    @apply rounded-lg border-2 p-4 shadow-sm transition-all duration-200;
+    min-height: 120px;
+    border-radius: var(--gaza-radius-lg);
+    padding: var(--gaza-spacing-lg);
+    box-shadow: var(--gaza-shadow-sm);
+    transition: var(--gaza-transition-normal);
+  }
+  
+  .triage-card:hover {
+    @apply shadow-md transform scale-[1.02];
+    box-shadow: var(--gaza-shadow-md);
+  }
+  
+  .triage-card-critical {
+    background-color: var(--gaza-critical-50);
+    border-color: var(--gaza-critical-200);
+    color: var(--gaza-critical-600);
+  }
+  
+  .triage-card-urgent {
+    background-color: var(--gaza-warning-50);
+    border-color: var(--gaza-warning-200);
+    color: var(--gaza-warning-700);
+  }
+  
+  .triage-card-stable {
+    background-color: var(--gaza-success-50);
+    border-color: var(--gaza-success-200);
+    color: var(--gaza-success-700);
+  }
+  
+  .triage-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    border-radius: var(--gaza-radius-2xl);
+    padding: var(--gaza-spacing-xs) var(--gaza-spacing-md);
+    font-weight: 500;
+  }
+  
+  .triage-badge-critical {
+    background-color: var(--gaza-critical-600);
+    color: white;
+  }
+  
+  .triage-badge-urgent {
+    background-color: var(--gaza-warning-500);
+    color: white;
+  }
+  
+  .triage-badge-stable {
+    background-color: var(--gaza-success-600);
+    color: white;
+  }
+  
+  /* Gaza Care Hub Form Components */
+  .gaza-form-input {
+    @apply w-full border bg-background text-foreground;
+    @apply focus:outline-none focus:ring-2 focus:border-transparent;
+    padding: var(--gaza-spacing-md) var(--gaza-spacing-lg);
+    border-radius: var(--gaza-radius-md);
+    border-color: var(--gaza-border);
+    color: var(--gaza-text-primary);
+    font-family: var(--gaza-font-sans);
+    transition: var(--gaza-transition-fast);
+    min-height: 44px; /* Accessibility: minimum touch target size */
+  }
+  
+  .gaza-form-input:focus {
+    border-color: var(--gaza-primary-600);
+    box-shadow: 0 0 0 2px var(--gaza-primary-200);
+  }
+  
+  .gaza-form-label {
+    @apply block font-medium mb-1;
+    color: var(--gaza-text-primary);
+    font-family: var(--gaza-font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Gaza Care Hub Button Components */
+  .gaza-btn-primary {
+    @apply inline-flex items-center justify-center border border-transparent;
+    @apply font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--gaza-primary-600);
+    color: white;
+    padding: var(--gaza-spacing-md) var(--gaza-spacing-lg);
+    border-radius: var(--gaza-radius-md);
+    font-family: var(--gaza-font-sans);
+    font-weight: 500;
+    transition: var(--gaza-transition-fast);
+    min-height: 44px; /* Accessibility: minimum touch target size */
+    min-width: 44px;
+  }
+  
+  .gaza-btn-primary:hover {
+    background-color: var(--gaza-primary-700);
+  }
+  
+  .gaza-btn-primary:focus {
+    box-shadow: 0 0 0 2px var(--gaza-primary-200);
+  }
+  
+  .gaza-btn-secondary {
+    @apply inline-flex items-center justify-center border;
+    @apply font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--gaza-background);
+    color: var(--gaza-text-primary);
+    border-color: var(--gaza-border);
+    padding: var(--gaza-spacing-md) var(--gaza-spacing-lg);
+    border-radius: var(--gaza-radius-md);
+    font-family: var(--gaza-font-sans);
+    font-weight: 500;
+    transition: var(--gaza-transition-fast);
+    min-height: 44px; /* Accessibility: minimum touch target size */
+    min-width: 44px;
+  }
+  
+  .gaza-btn-secondary:hover {
+    background-color: var(--gaza-gray-50);
+  }
+  
+  .gaza-btn-secondary:focus {
+    box-shadow: 0 0 0 2px var(--gaza-primary-200);
+  }
+  
+  /* Legacy form styles for backward compatibility */
+  .form-input {
+    @apply w-full px-3 py-2 border border-input rounded-md bg-background text-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    min-height: 44px; /* Accessibility: minimum touch target size */
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-1;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent;
+    @apply text-sm font-medium rounded-md text-primary-foreground bg-primary;
+    @apply hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    min-height: 44px; /* Accessibility: minimum touch target size */
+    min-width: 44px;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-border;
+    @apply text-sm font-medium rounded-md text-foreground bg-background;
+    @apply hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    min-height: 44px; /* Accessibility: minimum touch target size */
+    min-width: 44px;
+  }
+  
+  .checkbox-input {
+    @apply h-4 w-4 text-primary focus:ring-ring border-border rounded;
+    min-height: 44px; /* Accessibility: minimum touch target size for container */
+    min-width: 44px;
+  }
+  
+  .status-indicator {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-online {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-offline {
+    @apply bg-red-100 text-red-800;
+  }
+}
+
+/* Enhanced Animation keyframes for Gaza Care Hub design system */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInBounce {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--gaza-primary-400);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px var(--gaza-primary-400), 0 0 30px var(--gaza-primary-400);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes heartbeatStrong {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes shimmerGlow {
+  0% {
+    background-position: -200px 0;
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+    opacity: 0.6;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--gaza-primary-400);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--gaza-primary-400), 0 0 30px var(--gaza-primary-400);
+  }
+}
+
+@keyframes glowIntense {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--gaza-primary-500), 0 0 20px var(--gaza-primary-400);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--gaza-primary-500), 0 0 50px var(--gaza-primary-400), 0 0 70px var(--gaza-primary-300);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateY(-20deg);
+  }
+  60% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  80% {
+    transform: perspective(400px) rotateY(-5deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Enhanced animation keyframes for visual polish */
+@keyframes smoothEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gentleBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+  80% {
+    transform: translateY(2px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes elegantSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmerEnhanced {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes shimmerOverlay {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulseEnhanced {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-3px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes successBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    left: 0;
+    right: 0;
+  }
+  50% {
+    left: 0;
+    right: 0;
+  }
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCursor {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--gaza-primary-600);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes morphIn {
+  0% {
+    border-radius: 50%;
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  50% {
+    border-radius: 25%;
+    transform: scale(1.1) rotate(90deg);
+    opacity: 0.8;
+  }
+  100% {
+    border-radius: 8px;
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes liquidMove {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(10px, -10px) rotate(180deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes elasticIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  /* High contrast mode support for accessibility */
+  @media (prefers-contrast: high) {
+    .triage-card {
+      @apply border-4;
+    }
+    
+    .triage-badge {
+      @apply border-2 border-white;
+    }
+    
+    .gaza-btn-primary,
+    .gaza-btn-secondary {
+      @apply border-2;
+    }
+  }
+  
+  /* Reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .triage-card {
+      @apply transition-none;
+    }
+    
+    .triage-card:hover {
+      @apply transform-none;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Focus visible utilities for keyboard navigation */
+  .focus-visible {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  /* Enhanced Gaza Care Hub utility classes */
+  .gaza-fade-in {
+    animation: fadeIn var(--gaza-transition-normal) ease-in-out;
+  }
+  
+  .gaza-fade-in-up {
+    animation: fadeInUp var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-fade-in-down {
+    animation: fadeInDown var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-slide-up {
+    animation: slideUp var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-slide-down {
+    animation: slideDown var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-slide-in-left {
+    animation: slideInLeft var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-slide-in-right {
+    animation: slideInRight var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-scale-in {
+    animation: scaleIn var(--gaza-transition-normal) ease-out;
+  }
+  
+  .gaza-scale-in-bounce {
+    animation: scaleInBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .gaza-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .gaza-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .gaza-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  .gaza-heartbeat-strong {
+    animation: heartbeatStrong 1.2s ease-in-out infinite;
+  }
+  
+  .gaza-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  .gaza-spin-slow {
+    animation: spinSlow 3s linear infinite;
+  }
+  
+  .gaza-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .gaza-shimmer-glow {
+    background: linear-gradient(90deg, var(--gaza-primary-100) 25%, var(--gaza-primary-200) 50%, var(--gaza-primary-100) 75%);
+    background-size: 200px 100%;
+    animation: shimmerGlow 2s infinite;
+  }
+  
+  .gaza-bounce {
+    animation: bounce 1s infinite;
+  }
+  
+  .gaza-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+  
+  .gaza-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .gaza-float-gentle {
+    animation: floatGentle 4s ease-in-out infinite;
+  }
+  
+  .gaza-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .gaza-glow-intense {
+    animation: glowIntense 1.5s ease-in-out infinite alternate;
+  }
+  
+  .gaza-wiggle {
+    animation: wiggle 1s ease-in-out;
+  }
+  
+  .gaza-zoom-in {
+    animation: zoomIn 0.3s ease-out;
+  }
+  
+  .gaza-zoom-out {
+    animation: zoomOut 0.3s ease-in;
+  }
+  
+  .gaza-rotate-in {
+    animation: rotateIn 0.6s ease-out;
+  }
+  
+  .gaza-flip-in {
+    animation: flipIn 0.6s ease-out;
+  }
+  
+  .gaza-slide-in-top {
+    animation: slideInFromTop 0.4s ease-out;
+  }
+  
+  .gaza-slide-in-bottom {
+    animation: slideInFromBottom 0.4s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn var(--gaza-transition-normal) ease-in-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp var(--gaza-transition-normal) ease-out;
+  }
+  
+  .animate-fade-in-down {
+    animation: fadeInDown var(--gaza-transition-normal) ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp var(--gaza-transition-normal) ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown var(--gaza-transition-normal) ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn var(--gaza-transition-normal) ease-out;
+  }
+  
+  .animate-scale-in-bounce {
+    animation: scaleInBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Staggered animation delays for lists */
+  .animate-stagger-1 { animation-delay: 0.1s; }
+  .animate-stagger-2 { animation-delay: 0.2s; }
+  .animate-stagger-3 { animation-delay: 0.3s; }
+  .animate-stagger-4 { animation-delay: 0.4s; }
+  .animate-stagger-5 { animation-delay: 0.5s; }
+  .animate-stagger-6 { animation-delay: 0.6s; }
+  .animate-stagger-7 { animation-delay: 0.7s; }
+  .animate-stagger-8 { animation-delay: 0.8s; }
+  
+  /* Enhanced interaction states */
+  .gaza-interactive {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  
+  .gaza-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gaza-interactive:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gaza-button-hover {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaza-button-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .gaza-button-hover:hover::before {
+    left: 100%;
+  }
+  
+  .gaza-button-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gaza-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .gaza-card-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gaza-card-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  .gaza-card-hover:hover::after {
+    opacity: 1;
+  }
+  
+  /* Loading state enhancements */
+  .gaza-loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  
+  .gaza-loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: rgba(156, 163, 175, 0.2);
+    border-radius: 4px;
+  }
+  
+  /* Status indicators */
+  .gaza-status-online {
+    position: relative;
+  }
+  
+  .gaza-status-online::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  .gaza-status-offline {
+    position: relative;
+  }
+  
+  .gaza-status-offline::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #ef4444;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  /* Enhanced focus states */
+  .gaza-focus-ring {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .gaza-focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
+    border-color: var(--gaza-primary-500);
+  }
+  
+  .gaza-focus-ring:focus-visible {
+    outline: 2px solid var(--gaza-primary-600);
+    outline-offset: 2px;
+  }
+  
+  /* Enhanced visual polish animations */
+  .gaza-smooth-entrance {
+    animation: smoothEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .gaza-gentle-bounce {
+    animation: gentleBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .gaza-elegant-slide {
+    animation: elegantSlide 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .gaza-subtle-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaza-subtle-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease-in-out;
+  }
+  
+  .gaza-subtle-glow:hover::before {
+    left: 100%;
+  }
+  
+  .gaza-micro-interaction {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .gaza-micro-interaction:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gaza-micro-interaction:active {
+    transform: translateY(0);
+    transition-duration: 0.05s;
+  }
+  
+  /* Enhanced loading states */
+  .gaza-skeleton-enhanced {
+    background: linear-gradient(90deg, 
+      var(--gaza-gray-200) 25%, 
+      var(--gaza-gray-100) 50%, 
+      var(--gaza-gray-200) 75%
+    );
+    background-size: 200px 100%;
+    animation: shimmerEnhanced 1.8s infinite ease-in-out;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaza-skeleton-enhanced::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.6) 50%, 
+      transparent 100%
+    );
+    animation: shimmerOverlay 2s infinite ease-in-out;
+  }
+  
+  .gaza-pulse-enhanced {
+    animation: pulseEnhanced 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Enhanced error states */
+  .gaza-error-shake {
+    animation: errorShake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  }
+  
+  .gaza-success-bounce {
+    animation: successBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Enhanced typography animations */
+  .gaza-text-reveal {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .gaza-text-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gaza-primary-600);
+    animation: textReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  }
+  
+  .gaza-typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--gaza-primary-600);
+    white-space: nowrap;
+    animation: typewriter 2s steps(40, end), blinkCursor 0.75s step-end infinite;
+  }
+  
+  /* Enhanced button states */
+  .gaza-button-magnetic {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .gaza-button-magnetic:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gaza-button-magnetic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gaza-button-magnetic:hover::before {
+    opacity: 1;
+    animation: buttonShine 0.6s ease-in-out;
+  }
+  
+  /* Enhanced card interactions */
+  .gaza-card-premium {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .gaza-card-premium:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gaza-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(13, 148, 136, 0.1) 0%, 
+      transparent 50%, 
+      rgba(13, 148, 136, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: inherit;
+  }
+  
+  .gaza-card-premium:hover::before {
+    opacity: 1;
+  }
+  
+  /* Enhanced status indicators */
+  .gaza-status-enhanced {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+  }
+  
+  .gaza-status-enhanced::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: statusPulse 2s infinite;
+  }
+  
+  .gaza-status-online.gaza-status-enhanced {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+  
+  .gaza-status-online.gaza-status-enhanced::before {
+    background: #10b981;
+  }
+  
+  .gaza-status-offline.gaza-status-enhanced {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  
+  .gaza-status-offline.gaza-status-enhanced::before {
+    background: #ef4444;
+  }
+  
+  /* Enhanced form interactions */
+  .gaza-form-enhanced {
+    position: relative;
+  }
+  
+  .gaza-form-enhanced .form-input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .gaza-form-enhanced .form-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.15);
+  }
+  
+  .gaza-form-enhanced .form-label {
+    transition: all 0.3s ease;
+    transform-origin: left center;
+  }
+  
+  .gaza-form-enhanced .form-input:focus + .form-label,
+  .gaza-form-enhanced .form-input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--gaza-primary-600);
+  }
+  
+  /* Notification animations */
+  .gaza-notification-enter {
+    animation: slideInFromTop 0.3s ease-out;
+  }
+  
+  .gaza-notification-exit {
+    animation: slideInFromTop 0.3s ease-in reverse;
+  }
+  
+  /* Progress indicators */
+  .gaza-progress-bar {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--gaza-gray-200);
+    border-radius: 9999px;
+  }
+  
+  .gaza-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gaza-primary-500), var(--gaza-primary-600));
+    border-radius: inherit;
+    transition: width 0.5s ease-in-out;
+    position: relative;
+  }
+  
+  .gaza-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Additional enhanced utility classes */
+  .gaza-smooth-entrance { animation: smoothEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .gaza-gentle-bounce { animation: gentleBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  .gaza-elegant-slide { animation: elegantSlide 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .gaza-morph-in { animation: morphIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  .gaza-breathe { animation: breathe 3s ease-in-out infinite; }
+  .gaza-liquid-move { animation: liquidMove 8s ease-in-out infinite; }
+  .gaza-elastic-in { animation: elasticIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  .gaza-gradient-shift { 
+    background: linear-gradient(-45deg, var(--gaza-primary-400), var(--gaza-primary-600), var(--gaza-primary-500), var(--gaza-primary-700));
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+  }
+  
+  /* Enhanced interaction states */
+  .gaza-hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .gaza-hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  .gaza-hover-glow {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .gaza-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(13, 148, 136, 0.4);
+  }
+  
+  .gaza-hover-scale {
+    transition: transform 0.2s ease;
+  }
+  
+  .gaza-hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .gaza-hover-rotate {
+    transition: transform 0.3s ease;
+  }
+  
+  .gaza-hover-rotate:hover {
+    transform: rotate(5deg);
+  }
+  
+  /* Enhanced loading states */
+  .gaza-loading-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+  
+  .gaza-loading-dots > div {
+    width: 8px;
+    height: 8px;
+    background: var(--gaza-primary-600);
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite both;
+  }
+  
+  .gaza-loading-dots > div:nth-child(1) { animation-delay: -0.32s; }
+  .gaza-loading-dots > div:nth-child(2) { animation-delay: -0.16s; }
+  .gaza-loading-dots > div:nth-child(3) { animation-delay: 0s; }
+  
+  .gaza-loading-wave {
+    display: inline-flex;
+    gap: 2px;
+  }
+  
+  .gaza-loading-wave > div {
+    width: 4px;
+    height: 20px;
+    background: var(--gaza-primary-600);
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  
+  .gaza-loading-wave > div:nth-child(1) { animation-delay: 0s; }
+  .gaza-loading-wave > div:nth-child(2) { animation-delay: 0.1s; }
+  .gaza-loading-wave > div:nth-child(3) { animation-delay: 0.2s; }
+  .gaza-loading-wave > div:nth-child(4) { animation-delay: 0.3s; }
+  .gaza-loading-wave > div:nth-child(5) { animation-delay: 0.4s; }
+  
+  /* Enhanced typography effects */
+  .gaza-text-gradient {
+    background: linear-gradient(135deg, var(--gaza-primary-600), var(--gaza-primary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gaza-text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gaza-text-glow {
+    text-shadow: 0 0 10px rgba(13, 148, 136, 0.5);
+  }
+  
+  /* Enhanced borders and decorations */
+  .gaza-border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, var(--gaza-primary-400), var(--gaza-primary-600)) border-box;
+  }
+  
+  .gaza-border-animated {
+    position: relative;
+    border: 2px solid transparent;
+  }
+  
+  .gaza-border-animated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--gaza-primary-400), var(--gaza-primary-600), var(--gaza-primary-400));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: borderRotate 3s linear infinite;
+  }
+  
+  /* Particle effects */
+  .gaza-particles {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaza-particles::before,
+  .gaza-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gaza-primary-400);
+    border-radius: 50%;
+    animation: particleFloat 3s linear infinite;
+  }
+  
+  .gaza-particles::before {
+    top: 80%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .gaza-particles::after {
+    top: 60%;
+    right: 30%;
+    animation-delay: 1.5s;
+  }
+  
+  /* Ripple effect */
+  .gaza-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaza-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .gaza-ripple:active::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Responsive text utilities */
+  .gaza-text-responsive-sm {
+    font-size: var(--gaza-text-sm);
+  }
+  
+  .gaza-text-responsive-base {
+    font-size: var(--gaza-text-base);
+  }
+  
+  .gaza-text-responsive-lg {
+    font-size: var(--gaza-text-lg);
+  }
+  
+  @media (min-width: 768px) {
+    .gaza-text-responsive-sm {
+      font-size: var(--gaza-text-base);
+    }
+    
+    .gaza-text-responsive-base {
+      font-size: var(--gaza-text-lg);
+    }
+    
+    .gaza-text-responsive-lg {
+      font-size: var(--gaza-text-xl);
+    }
+  }
+  
+  /* Touch target utilities for mobile accessibility */
+  .gaza-touch-target {
+    min-height: var(--gaza-spacing-11);
+    min-width: var(--gaza-spacing-11);
+  }
+  
+  /* Container utilities */
+  .gaza-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--gaza-spacing-3);
+  }
+  
+  @media (min-width: 640px) {
+    .gaza-container {
+      padding: 0 var(--gaza-spacing-4);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .gaza-container {
+      padding: 0 var(--gaza-spacing-6);
+    }
+  }
+  
+  /* Mobile-first responsive utilities */
+  .gaza-text-mobile {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+  
+  @media (min-width: 640px) {
+    .gaza-text-mobile {
+      font-size: 1rem; /* 16px */
+      line-height: 1.5rem; /* 24px */
+    }
+  }
+  
+  /* Line clamping for mobile content */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Mobile-optimized spacing */
+  .gaza-mobile-spacing {
+    padding: var(--gaza-spacing-3);
+  }
+  
+  @media (min-width: 640px) {
+    .gaza-mobile-spacing {
+      padding: var(--gaza-spacing-4);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .gaza-mobile-spacing {
+      padding: var(--gaza-spacing-6);
+    }
+  }
+  
+  /* Mobile-friendly button sizing */
+  .gaza-btn-mobile {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 16px;
+    font-size: 0.875rem;
+  }
+  
+  @media (min-width: 640px) {
+    .gaza-btn-mobile {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 10px 16px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Improved focus states for mobile */
+  .gaza-focus-mobile:focus {
+    outline: 2px solid var(--gaza-primary-600);
+    outline-offset: 2px;
+  }
+  
+  /* Mobile-optimized card spacing */
+  .gaza-card-mobile {
+    padding: var(--gaza-spacing-4);
+    margin-bottom: var(--gaza-spacing-3);
+  }
+  
+  @media (min-width: 640px) {
+    .gaza-card-mobile {
+      padding: var(--gaza-spacing-5);
+      margin-bottom: var(--gaza-spacing-4);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .gaza-card-mobile {
+      padding: var(--gaza-spacing-6);
+      margin-bottom: var(--gaza-spacing-6);
+    }
+  }
+}
